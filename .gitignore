@@ -1,0 +1,6 @@
+.nyc_output
+.idea
+node_modules
+old
+public
+assets/avatars

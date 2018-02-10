@@ -1,0 +1,212 @@
+@mixin disable-select{
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+* {
+  outline: none;
+}
+html {
+  background: #000;
+  color: #fff;
+  font-family: Thoma, Arial, Sans-Serif;
+}
+h1 {
+  position: relative;
+  font-size: 80px;
+  font-style: italic;
+  line-height: 40px;
+  text-align: center;
+  color: #79e5ff;
+  margin: 80px 0 0;
+  span {
+    font-size: 30px;
+  }
+}
+
+
+audio {
+  display: none;
+  &#music {
+    display: block;
+    margin: 0 auto;
+  }
+}
+#tvj {
+  position: absolute;
+  right: 80px;
+  top: -30px;
+}
+
+@keyframes spin {
+  0% {transform: rotate(-10deg);}
+  50% {transform: rotate(10deg); }
+  100% {transform: rotate(-10deg); }
+}
+
+#competitors {
+  margin: 40px auto;
+  width: 100%;
+  text-align: center;
+
+  .competitor {
+    position: relative;
+    float: left;
+    width: 188px;
+    height: 510px;
+    margin-bottom: 40px;
+    background: url('/assets/images/competitor_background.png') 0 65px no-repeat;
+    &.lose{
+      opacity: 0.4;
+    }
+
+    &.answering{
+      transform: scale(1.3);
+      z-index: 1000;
+    }
+
+    .head {
+      position: relative;
+      left: 30px;
+      width: 140px;
+      height: 200px;
+      overflow: hidden;
+      z-index: 9;
+      cursor: move;
+      img {
+        pointer-events: none;
+        user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-drag: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        animation: spin 10s ease-in-out infinite;
+      }
+    }
+
+    .competitor_data {
+      position: relative;
+      top: 98px;
+      left: 32px;
+      width: 136px;
+      height: 83px;
+      overflow: hidden;
+      input.name {
+        background-color: transparent;
+        color: white;
+        width:136px;
+        font-family: Thoma, Arial, sans-serif;;
+        vertical-align: middle;
+        text-align: center;
+        border:none;
+        font-size: 22px;
+        font-weight: bold;
+        line-height: 34px;
+        text-transform: uppercase;
+      }
+      .score {
+        font: normal 48px/40px Impact, Arial, Sans-Serif;
+      }
+    }
+    .chances {
+      position: absolute;
+      bottom: 30px;
+      left: 52px;
+      .chance{
+        width: 20px;
+        height: 80px;
+        cursor: pointer;
+        background-color: #002771;
+        display: inline-block;
+        margin: 0 7px;
+        z-index: 1;
+        &.available{
+          background-color: #6ecbe2;
+        }
+      }
+    }
+    &:hover{
+      .controls {
+        display:block;
+      }
+    }
+    .controls {
+      display:none;
+      position: absolute;
+      right:0;
+      left: 0;
+      bottom: 0;
+      .chances_control{
+        text-align: center;
+        span{
+          @include disable-select;
+          vertical-align: middle;
+          text-align: center;
+          font-size: 80px;
+          display: inline-block;
+          width: 80px;
+          cursor: pointer;
+          &:active{
+            font-size: 60px;
+          }
+        }
+      }
+      span{
+        @include disable-select;
+        margin-left: 3px;
+      }
+    }
+  }
+  @for $i from 1 through 50 {
+    .competitor.competitor_#{$i} .head {
+      left: 25+random(6)+px;
+      top: random(16)+px;
+      img {
+        animation-delay: random(20)+s;
+      }
+    }
+  }
+}
+
+
+.clr {
+  overflow: hidden;
+  clear: both;
+  display: block;
+}
+
+
+.controls {
+  span {
+    font-size: 22px;
+    user-select: none;
+    cursor: pointer;
+  }
+  .minus_1 {
+    margin-left: 11px;
+  }
+  .competitor {
+    text-align: left;
+  }
+}
+
+#add_competitor {
+  margin: 20px auto 0;
+  width: 100px;
+  text-align: center;
+  font-size: 40px;
+  cursor: pointer;
+}
+#win_btn {
+  margin: 20px auto 0;
+  width: 100px;
+  text-align: center;
+  font-size: 99px;
+  cursor: pointer;
+  color: #6f6;
+}
