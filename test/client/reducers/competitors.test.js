@@ -4,8 +4,8 @@ const {expect} = require('chai');
 
 const freeze = require('../helpers/freezer');
 
-const Actions= require('../../src/client/actions/competitors');
-const reducer = require('../../src/client/reducers/competitors');
+const Actions= require('../../../src/client/actions/competitors');
+const reducer = require('../../../src/client/reducers/competitors');
 
 
 describe('CompetitorReducers', ()=>{

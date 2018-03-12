@@ -4,7 +4,7 @@ import {expect} from "chai";
 import sinon from 'sinon';
 
 
-import AddCompetitorButton from "../../src/client/elements/add_competitor_button";
+import AddCompetitorButton from "../../../src/client/elements/add_competitor_button";
 
 describe('<AddCompetitorButton/>', ()=>{
     it('should add competitors', function () {

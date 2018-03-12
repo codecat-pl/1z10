@@ -1,7 +1,7 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import sinon from 'sinon';
-import Controls from '../../src/client/elements/controls'
+import Controls from '../../../src/client/elements/controls'
 
 function setup() {
     const actions = {

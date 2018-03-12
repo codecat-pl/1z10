@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme';
 import { expect } from 'chai';
 import sinon from 'sinon';
 
-import Score from "../../src/client/elements/score";
+import Score from "../../../src/client/elements/score";
 
 describe('<Score />', ()=>{
     it('should have value of score', ()=>{

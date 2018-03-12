@@ -4,11 +4,11 @@ const {expect} = require('chai');
 
 import { render } from 'react-dom'
 
-import initApp from '../src/client/app';
-import initStore from '../src/client/store';
-import * as actions from '../src/client/actions/competitors';
-import ConnectedHall from '../src/client/elements/hall';
-import Competitor from '../src/client/elements/competitor';
+import initApp from '../../src/client/app';
+import initStore from '../../src/client/store';
+import * as actions from '../../src/client/actions/competitors';
+import ConnectedHall from '../../src/client/elements/hall';
+import Competitor from '../../src/client/elements/competitor';
 
 
 

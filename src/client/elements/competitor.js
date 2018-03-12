@@ -14,7 +14,8 @@ import * as actions from '../actions/competitors';
 
 export class Competitor extends Component {
     render() {
-        const {idx, playerId, data, addPoints, giveChance, takeChance, changeName, remove} = this.props;
+        const {idx, playerId, data, addPoints, giveChance, takeChance, changeName, remove, selected} = this.props;
+        if(!data) return null;
         return (
             <Draggable
                 axis="both"
@@ -22,7 +23,7 @@ export class Competitor extends Component {
                 defaultPosition={{x: 0, y: 0}}
                 position={null}
                 grid={[25, 25]}>
-                <div className={cn("competitor", "competitor_" + idx, {lose: data.chances < 1})}>
+                <div className={cn("competitor", "competitor_" + idx, {lose: data.chances < 1, selected: selected})}>
                     <Avatar photo={data.photo}/>
                     <Score value={data.score}
                            name={data.name}
@@ -57,7 +58,8 @@ Competitor.propTypes = {
 
 const mapStateToProps = (state, props)=>{
     return {
-        data: state.players[props.playerId]
+        data: state.competitors.players[props.playerId],
+        selected: state.selected === props.playerId
     };
 };
 

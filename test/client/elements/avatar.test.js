@@ -2,8 +2,8 @@ import React from "react";
 import {mount, shallow} from "enzyme";
 import {expect} from "chai";
 
-import config from "../../src/client/config";
-import Avatar from "../../src/client/elements/avatar";
+import config from "../../../src/client/config";
+import Avatar from "../../../src/client/elements/avatar";
 
 describe('<Avatar/>', ()=>{
     it('should have an image', function () {

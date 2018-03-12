@@ -11,7 +11,9 @@ export default (config={})=>{
         });
     }
     return {
-        nextId: maxIdx+1,
-        players: ret
+        competitors:{
+            nextId: maxIdx+1,
+            players: ret
+        }
     }
 }

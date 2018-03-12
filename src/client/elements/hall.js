@@ -20,7 +20,7 @@ export class Hall extends Component {
     }
 
     render(){
-        const {players} = this.props;
+        const {players} = this.props.competitors;
 
         const competitors = Object.getOwnPropertyNames(players).map(id=>(
             <Competitor playerId={Number(id)} idx={Number(id)} key={id}/>

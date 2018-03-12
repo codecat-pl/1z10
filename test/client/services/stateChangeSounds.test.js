@@ -1,9 +1,9 @@
 
 import { createStore } from 'redux'
-import reducer from '../../src/client/reducers';
-import SoundService from '../../src/client/services/sounds';
+import reducer from '../../../src/client/reducers/index';
+import SoundService from '../../../src/client/services/auto_sounds';
 import sinon from 'sinon';
-import * as actions from '../../src/client/actions/competitors';
+import * as actions from '../../../src/client/actions/competitors';
 import chai from 'chai';
 const should = chai.should();
 
@@ -12,10 +12,12 @@ describe('Sound Service', ()=>{
     let store;
     beforeEach(()=>{
         store = createStore(reducer, {
-            nextId:5,
-            players: {
-                2: {score: 2, chances: 3},
-                5: {score: 5, chances: 1}
+            competitors: {
+                nextId: 5,
+                players: {
+                    2: {score: 2, chances: 3},
+                    5: {score: 5, chances: 1}
+                }
             }
         })
     });

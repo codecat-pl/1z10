@@ -5,19 +5,21 @@ import { render } from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 import sinon from 'sinon';
-import reducer from "../src/client/reducers/competitors";
-import AddCompetitorButton from "../src/client/elements/add_competitor_button";
-import ConnectedHall,{Hall} from '../src/client/elements/hall';
-import {Competitor} from "../src/client/elements/competitor";
+import reducer from "../../src/client/reducers/competitors";
+import AddCompetitorButton from "../../src/client/elements/add_competitor_button";
+import ConnectedHall,{Hall} from '../../src/client/elements/hall';
+import {Competitor} from "../../src/client/elements/competitor";
 
 describe('<ConnectedHall/>', ()=> {
     let store;
     const Jas = {photo: 'jan.png', name: 'Jan', score: 3, chances: 1};
     beforeEach(() => {
         store = createStore(reducer, {
-            nextId: 2,
-            players: {
-                1: Jas
+            competitors: {
+                nextId: 2,
+                players: {
+                    1: Jas
+                }
             }
         });
     });
@@ -33,7 +35,7 @@ function setup(){
         create: sinon.spy()
     };
 
-    const component = shallow(<Hall players={[]} {...actions}/>);
+    const component = shallow(<Hall competitors={{players:[]}} {...actions}/>);
 
     return {
         component,

@@ -3,7 +3,7 @@ import ConnectedHall from './elements/hall';
 
 import { Provider } from 'react-redux'
 
-export default store => props => {
+export default (store, mBus) => props => {
     return (
         <Provider store={store}>
             <ConnectedHall/>

@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {mount,  shallow } from 'enzyme'
 import sinon from 'sinon';
 
-import Avatar from '../../src/client/elements/avatar';
-import Score from '../../src/client/elements/score';
-import Chances from '../../src/client/elements/chances';
-import Controls from '../../src/client/elements/controls';
-import {Competitor} from '../../src/client/elements/competitor'
+import Avatar from '../../../src/client/elements/avatar';
+import Score from '../../../src/client/elements/score';
+import Chances from '../../../src/client/elements/chances';
+import Controls from '../../../src/client/elements/controls';
+import {Competitor} from '../../../src/client/elements/competitor'
 
 import chai from 'chai';
 const expect = chai.expect;
@@ -124,5 +124,17 @@ describe('<Competitor/>', ()=>{
         component.setProps({data});
         component.update();
         expect(component.find('.lose').exists()).to.equal(true);
+    });
+
+    it('should not have selected class if selected prop is false', function () {
+        const {component, data} = setup(1);
+        expect(component.find('.selected').exists()).to.equal(false);
+    });
+
+    it('should add class selected if selected prop is true', function () {
+        const {component, data} = setup(1);
+        component.setProps({data, selected: true});
+        component.update();
+        expect(component.find('.selected').exists()).to.equal(true);
     });
 });

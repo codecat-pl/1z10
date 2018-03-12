@@ -2,7 +2,7 @@ import React from "react";
 import {mount, shallow} from "enzyme";
 import {expect} from "chai";
 
-import Chances from "../../src/client/elements/chances";
+import Chances from "../../../src/client/elements/chances";
 
 describe('<Chances />', ()=>{
     it('should present three chances even if value >4 ', ()=>{

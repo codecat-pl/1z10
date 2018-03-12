@@ -3,7 +3,7 @@ const sinon = require('sinon');
 const chai = require('chai');
 const should = chai.should();
 
-const Sound = require('../src/client/sound');
+const Sound = require('../../src/client/sound');
 
 
 describe('Sound', ()=>{
